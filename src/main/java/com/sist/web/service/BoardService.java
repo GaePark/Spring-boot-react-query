@@ -13,4 +13,5 @@ public interface BoardService {
 	public void boardInsert(BoardEntity vo);
 	public void boardDelete(int no);
 	public BoardDetailVO boardUpdate(int no);
+	public List<BoardVO> boardMainList();
 }

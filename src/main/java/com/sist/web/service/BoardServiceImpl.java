@@ -62,5 +62,11 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return bDao.boardDetailData(no);
 	}
+
+	@Override
+	public List<BoardVO> boardMainList() {
+		// TODO Auto-generated method stub
+		return bDao.boardMainList();
+	}
 	
 }

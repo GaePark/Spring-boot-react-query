@@ -38,6 +38,7 @@ public class BoardEntity {
 	@SequenceGenerator(name = "reactboard_no_seq", sequenceName = "reactboard_no_seq", allocationSize = 1)
 	private int no;
 	private String name,subject,id,content;
+	@Column(name="regdate", insertable = false, updatable = false)
     private LocalDateTime regdate;
 	private int hit;
 }

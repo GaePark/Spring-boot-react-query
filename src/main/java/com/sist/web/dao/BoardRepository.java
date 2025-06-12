@@ -26,4 +26,10 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
 	@Query(value="SELECT * FROM reactboard WHERE no=:no", nativeQuery = true)
 	public BoardEntity boardDetail(@Param("no") int no);
 	
+	@Query(value="SELECT no,name,subject,hit,TO_CHAR(regdate,'yyyy-MM-dd') as dbday,num "
+			+ "FROM (SELECT no,name,subject,hit,regdate,rownum as num "
+			+ "FROM (SELECT no,name,subject,hit,regdate "
+			+ "FROM reactboard ORDER BY no DESC)) "
+			+ "WHERE num <=4 ", nativeQuery = true)
+	public List<BoardVO> boardMainList();
 }

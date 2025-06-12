@@ -19,6 +19,9 @@ public class MainRestController {
 	@Autowired
 	private FoodService fService;
 	
+	@Autowired
+	private BoardService bService;
+	
 	@GetMapping("/main")
 	public ResponseEntity<Map> main_data()
 	{
@@ -27,9 +30,10 @@ public class MainRestController {
 		{
 			List<RecipeVO> rList=rService.recipeMainData();
 			List<FoodVO> fList=fService.foodMainData();
-			
+			List<BoardVO> bList=bService.boardMainList();
 			map.put("rList", rList);
 			map.put("fList", fList);
+			map.put("bList", bList);
 			
 		}catch (Exception e) {
 			// TODO: handle exception
